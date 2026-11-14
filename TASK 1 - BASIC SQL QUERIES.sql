@@ -1,0 +1,86 @@
+CREATE TABLE Employees (
+    employee_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    city VARCHAR(50),
+    department VARCHAR(50),
+    age INT,
+    salary DECIMAL(10,2),
+    joining_date DATE
+);
+
+INSERT INTO Employees VALUES
+(1, 'Aarav', 'Sharma', 'Pune', 'IT', 24, 35000, '2024-01-15'),
+(2, 'Priya', 'Patil', 'Mumbai', 'HR', 29, 42000, '2023-06-10'),
+(3, 'Rohan', 'Deshmukh', 'Pune', 'IT', 32, 55000, '2022-03-20'),
+(4, 'Sneha', 'Joshi', 'Nashik', 'Finance', 27, 38000, '2024-05-12'),
+(5, 'Kabir', 'Khan', 'Bengaluru', 'Marketing', 35, 60000, '2021-08-01'),
+(6, 'Ananya', 'Iyer', 'Chennai', 'IT', 22, 30000, '2025-02-18'),
+(7, 'Vikram', 'Rao', 'Hyderabad', 'Finance', 41, 75000, '2020-11-25'),
+(8, 'Meera', 'Kulkarni', 'Pune', 'HR', 26, 40000, '2023-09-05'),
+(9, 'Ishaan', 'Gupta', 'Delhi', 'Marketing', 30, 48000, '2022-12-14'),
+(10, 'Kavya', 'Nair', 'Kochi', 'IT', 28, 52000, '2023-04-22'),
+(11, 'Om', 'Jadhav', 'Mumbai', 'Finance', 23, 32000, '2025-01-08'),
+(12, 'Diya', 'Shah', 'Ahmedabad', 'HR', 31, 45000, '2022-07-19'),
+(13, 'Neha', 'More', 'Pune', 'IT', 25, 37000, '2024-02-11'),
+(14, 'Rahul', 'Verma', 'Jaipur', 'Marketing', 34, 58000, '2021-05-30'),
+(15, 'Pooja', 'Mehta', 'Surat', 'Finance', 28, 43000, '2023-10-16');
+
+-- 	Display all employee records.
+SELECT * FROM Employees;
+
+
+-- 	Display only employee name, city and salary.
+SELECT first_name, last_name, city, salary
+FROM Employees;
+
+
+-- Find employees who live in Pune.
+SELECT * FROM Employees
+WHERE city = 'Pune';
+
+
+-- Find employees working in IT department AND earning more than ₹35,000.
+SELECT * FROM Employees
+WHERE department = 'IT' AND salary > 35000;
+
+
+-- Find employees living in Mumbai OR Pune.
+SELECT * FROM Employees
+WHERE city = 'Mumbai' OR city = 'Pune';
+
+
+-- Find employees whose first name starts with 'A'.
+SELECT * FROM Employees
+WHERE first_name like 'A%';
+
+
+-- Find employees whose age is between 25 and 30.
+SELECT * FROM Employees
+WHERE age BETWEEN 25 AND 30;
+
+
+-- Find employees earning between ₹35,000 and ₹55,000.
+SELECT * FROM Employees
+WHERE salary BETWEEN 35000 and 55000;
+
+
+-- Find employees who joined between January and December 2023.
+SELECT * FROM Employees
+WHERE joining_date BETWEEN '2023-01-01' AND '2023-10-31';
+
+
+-- Display employees from highest to lowest salary.
+SELECT * FROM Employees
+ORDER BY salary DESC;
+
+
+-- Display employees alphabetically by first name.
+SELECT * FROM Employees
+ORDER BY first_name ASC;
+
+
+-- Display the top 3 highest-paid employees.
+SELECT * FROM Employees
+ORDER BY salary DESC
+LIMIT 3; 
